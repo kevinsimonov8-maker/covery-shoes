@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Covery Shoes — Shoes & Bags</title>
+<meta name="description" content="Covery Shoes: elegant shoes and bags for women and men.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&family=Great+Vibes&family=Marck+Script&family=Bebas+Neue&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="announce" id="announce">
+  <span class="a-status closed" id="aStatus" aria-live="polite"><i class="a-dot"></i><b id="aState">Checking…</b><em id="aNote"></em></span>
+  <span class="a-sep"></span>
+  <span class="a-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.500 2"/></svg>Mon – Fri &nbsp;·&nbsp; 8:00 – 20:00</span>
+  <span class="a-sep"></span>
+  <a class="a-item" href="https://www.google.com/maps/search/?api=1&query=41.9164,22.4122" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.500-5.800-6.500-11a6.500 6.500 0 0 1 13 0c0 5.200-6.500 11-6.500 11Z"/><circle cx="12" cy="10" r="2.400"/></svg>Kočani, North Macedonia</a>
+</div>
+
+<header class="header">
+  <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">
+    <svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+  </button>
+  <nav class="nav nav-left" id="nav">
+    <a href="#shop" data-filter="new">New</a>
+    <a href="#shop" data-filter="sneakers">Sneakers</a>
+    <a href="#shop" data-filter="loafers">Loafers</a>
+    <a href="#shop" data-filter="heels">Heels</a>
+    <a href="#shop" data-filter="boots">Boots</a>
+    <a href="#shop" data-filter="bags">Bags</a>
+    <a href="#sale" class="sale-link">Sale</a>
+  </nav>
+  <a href="#top" class="logo" id="top">COVERY <small>SHOES</small></a>
+  <div class="header-right">
+    <div class="lang" id="lang" role="group" aria-label="Language"><button type="button" data-l="mk">MK</button><span>/</span><button type="button" data-l="en">EN</button></div>
+    <button class="icon-btn" id="searchBtn" aria-label="Search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg>
+    </button>
+    <button class="icon-btn fav-btn" id="favBtn" aria-label="Favorites">
+      <svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9-9.6C2 7.500 4.200 5 7 5c1.900 0 3.500 1 5 3 1.500-2 3.100-3 5-3 2.800 0 5 2.500 4 5.900-1.500 5-9 9.600-9 9.600z"/></svg>
+      <span class="count" id="favCount">0</span>
+    </button>
+  </div>
+</header>
+
+<div class="searchbar" id="searchbar">
+  <input id="searchInput" type="search" placeholder="Search shoes and bags — try “loafer”, “black”, “tote”…">
+</div>
+
+<main>
+  <!-- HERO -->
+  <section class="bold-hero" id="hero" aria-roledescription="carousel">
+    <div class="bh-slide on" data-i="0">
+      <div class="bh-copy">
+        <span class="bh-script">Light Steps.</span>
+        <h1>FRESH<br>STYLE.</h1>
+        <p>Clean sneakers and matching bags<br>for every version of you.</p>
+      </div>
+      <div class="bh-photo"><img src="images/hero-sneakers.jpg" alt="White chunky sneakers with matching white bags"></div>
+      <div class="bh-badge"><small>New Season</small><i></i><small>Up to</small><b>30% OFF</b><small>Limited time</small></div>
+    </div>
+    <div class="bh-slide" data-i="1">
+      <div class="bh-copy">
+        <span class="bh-script">Everyday Chic.</span>
+        <h1>SOFT<br>TONES.</h1>
+        <p>Grey sneakers and quilted bags,<br>styled for the city.</p>
+      </div>
+      <div class="bh-photo p1"><img src="images/hero-sneakers2.jpg" alt="Grey sneakers with a quilted bag and backpack"></div>
+      <div class="bh-badge"><small>Winter Edit</small><i></i><small>Up to</small><b>25% OFF</b><small>Selected styles</small></div>
+    </div>
+    <div class="bh-slide" data-i="2">
+      <div class="bh-copy">
+        <span class="bh-script">City Days.</span>
+        <h1>CLASSIC<br>STRIPES.</h1>
+        <p>Cream suede sneakers and tote bags<br>for every day outside.</p>
+      </div>
+      <div class="bh-photo p2"><img src="images/hero-sneakers3.jpg" alt="Cream striped sneakers with brown and beige handbags"></div>
+      <div class="bh-badge"><small>Just In</small><i></i><small>Up to</small><b>20% OFF</b><small>Limited time</small></div>
+    </div>
+
+    <div class="bh-slide" data-i="3">
+      <div class="bh-copy">
+        <span class="bh-script">Sleek Lines.</span>
+        <h1>SHARP<br>STYLE.</h1>
+        <p>Glossy chocolate ankle boots<br>with a sculpted stiletto heel.</p>
+      </div>
+      <div class="bh-photo p3"><img src="images/hero-boots4.jpg" alt="Chocolate leather stiletto ankle boots"></div>
+      <div class="bh-badge"><small>New Season</small><i></i><small>Up to</small><b>30% OFF</b><small>Limited time</small></div>
+    </div>
+
+    <div class="bh-slide" data-i="4">
+      <div class="bh-copy">
+        <span class="bh-script">Pure Elegance.</span>
+        <h1>BLACK<br>BOOTS.</h1>
+        <p>Black leather knee-high boots with<br>a polished silver detail.</p>
+      </div>
+      <div class="bh-photo tall"><img src="images/hero-tall-black.jpg" alt="Black leather knee-high boots"></div>
+      <div class="bh-badge"><small>Winter Edit</small><i></i><small>Up to</small><b>25% OFF</b><small>Selected styles</small></div>
+    </div>
+
+    <div class="bh-slide" data-i="5">
+      <div class="bh-copy">
+        <span class="bh-script">Rich Tones.</span>
+        <h1>RICH<br>BROWN.</h1>
+        <p>Warm brown knee-high boots that<br>finish every winter look.</p>
+      </div>
+      <div class="bh-photo tall"><img src="images/hero-tall-brown.jpg" alt="Brown leather knee-high boots"></div>
+      <div class="bh-badge"><small>New Season</small><i></i><small>Up to</small><b>25% OFF</b><small>Limited time</small></div>
+    </div>
+
+    <div class="bh-slide" data-i="6">
+      <div class="bh-copy">
+        <span class="bh-script">Western Spirit.</span>
+        <h1>COWBOY<br>CHIC.</h1>
+        <p>Embroidered suede boots with a<br>sculpted block heel.</p>
+      </div>
+      <div class="bh-photo tall"><img src="images/hero-western.jpg" alt="Brown embroidered western boots with brown bags"></div>
+      <div class="bh-badge"><small>New Season</small><i></i><small>Up to</small><b>30% OFF</b><small>Limited time</small></div>
+    </div>
+
+    <div class="bh-slide" data-i="7">
+      <div class="bh-copy">
+        <span class="bh-script">Fold &amp; Style.</span>
+        <h1>FOLDED<br>SUEDE.</h1>
+        <p>Cuffed ankle boots in black and<br>brown, with a delicate strap.</p>
+      </div>
+      <div class="bh-photo tall"><img src="images/hero-fold-trio.jpg" alt="Black and brown folded suede ankle boots"></div>
+      <div class="bh-badge"><small>Just In</small><i></i><small>Up to</small><b>20% OFF</b><small>Limited time</small></div>
+    </div>
+
+    <div class="bh-slide" data-i="8">
+      <div class="bh-copy">
+        <span class="bh-script">Easy Elegance.</span>
+        <h1>BELTED<br>SUEDE.</h1>
+        <p>Soft chocolate suede with a<br>buckled strap detail.</p>
+      </div>
+      <div class="bh-photo tall"><img src="images/hero-fold-brown.jpg" alt="Brown belted suede ankle boots"></div>
+      <div class="bh-badge"><small>Winter Edit</small><i></i><small>Up to</small><b>25% OFF</b><small>Selected styles</small></div>
+    </div>
+
+    <div class="bh-slide" data-i="9">
+      <div class="bh-copy">
+        <span class="bh-script">Effortless.</span>
+        <h1>SLOUCH<br>STYLE.</h1>
+        <p>Black suede knee-high boots with a<br>slim kitten heel.</p>
+      </div>
+      <div class="bh-photo tall"><img src="images/hero-slouch-black.jpg" alt="Black suede slouch boots"></div>
+      <div class="bh-badge"><small>New Season</small><i></i><small>Up to</small><b>30% OFF</b><small>Limited time</small></div>
+    </div>
+
+    <div class="bh-fixed">
+      <ul class="bh-perks">
+        <li><svg viewBox="0 0 32 32"><path d="M6 26c0-12 8-19 20-20-1 12-8 20-20 20zM6 26 18 14"/></svg><b>Premium Quality</b><span>Made to last</span></li>
+        <li><svg viewBox="0 0 32 32"><path d="M9 22a5 5 0 0 1 0-10 7 7 0 0 1 13.5-1.5A5.5 5.5 0 0 1 23 22M16 14v11m-4-4 4 4 4-4"/></svg><b>All-Day Comfort</b><span>Walk with ease</span></li>
+        <li><svg viewBox="0 0 32 32"><path d="M16 4 6 8v8c0 6 4 10 10 12 6-2 10-6 10-12V8zM11.5 16l3.5 3.5 6-7"/></svg><b>Secure Shopping</b><span>Shop with confidence</span></li>
+      </ul>
+      <a href="#shop" class="bh-btn">Explore collection</a>
+    </div>
+    <div class="bh-dots" id="bhDots" role="tablist"><button class="on" aria-label="Slide 1"></button><button aria-label="Slide 2"></button><button aria-label="Slide 3"></button><button aria-label="Slide 4"></button><button aria-label="Slide 5"></button><button aria-label="Slide 6"></button><button aria-label="Slide 7"></button><button aria-label="Slide 8"></button><button aria-label="Slide 9"></button><button aria-label="Slide 10"></button></div>
+    <div class="bh-ship">Free delivery &amp; easy returns
+      <svg viewBox="0 0 36 22"><path d="M1 3h20v13H1zM21 8h8l5 5v3H21zM8 19.5a2.5 2.5 0 1 0 .01 0M27 19.5a2.5 2.5 0 1 0 .01 0"/></svg></div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section" id="categories">
+    <div class="section-head">
+      <p class="eyebrow">Browse</p>
+      <h2>Shop by category</h2>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </section>
+
+
+  <!-- EDITORIAL -->
+  <section class="editorial" id="editorial">
+    <div class="ed-main">
+      <div class="ed-zone" id="edZone" role="img" aria-label="White chunky runners in sharp focus, with white bags softly blurred behind">
+        <img class="z-blur" src="images/p00-hd.jpg" alt="">
+        <div class="z-tint"></div>
+        <div class="z-box">
+          <span class="z-label">In focus &nbsp;·&nbsp; White Chunky Runner</span>
+          <div class="z-clip"><img src="images/p00-hd.jpg" alt=""></div>
+          <i class="k tl"></i><i class="k tr"></i><i class="k bl"></i><i class="k br"></i>
+        </div>
+      </div>
+      <div class="ed-inner">
+        <div class="ed-copy">
+          <p class="ed-eyebrow">The Everyday Set</p>
+          <h2>Made to move.<br><em>Styled to match.</em></h2>
+          <p class="ed-text ed-fade" id="edText">Clean white runners with silver and suede details and a sculpted, cushioned sole, paired with a soft white shoulder bag. Light, fresh and easy to wear all day.</p>
+          <div class="ed-buy">
+            <a href="#shop" data-filter="sneakers" class="ed-link">Shop sneakers</a>
+            <a href="#shop" data-filter="bags" class="ed-link">Shop bags</a>
+          </div>
+          <p class="ed-price">Sneakers from $109 &nbsp;·&nbsp; Bags from $76</p>
+          <div class="ed-colors ed-fade" id="edColors"><span><i style="background:#fff"></i>White</span><span><i style="background:#c3c6cb"></i>Silver</span><span><i style="background:#8b8685"></i>Grey</span></div>
+          <div class="z-dots" id="zDots" aria-label="Choose a photo"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ed-facts">
+      <div><b>Materials</b><span>Breathable mesh and soft suede-effect uppers, cushioned sole.</span></div>
+      <div><b>Sizing</b><span>Sizes 36–41, true to size. Size up if between sizes.</span></div>
+      <div><b>Delivery</b><span>Free over $150. Arrives in 2–4 working days.</span></div>
+      <div><b>Returns</b><span>Free returns within 30 days of delivery.</span></div>
+      <div><b>Care</b><span>Wipe clean with a damp cloth and brush suede gently.</span></div>
+    </div>
+  </section>
+
+  <!-- PROMO STRIP -->
+  <section class="brands" aria-label="Brands we carry">
+    <p class="brands-label">Brands we carry</p>
+    <div class="brands-viewport">
+      <div class="brands-track" id="brandsTrack">
+        <div class="brand-set"><span class="brand"><img src="https://cdn.simpleicons.org/nike/1c1814" alt="Nike" style="height:45px"></span><span class="brand"><img src="https://cdn.simpleicons.org/adidas/1c1814" alt="adidas" style="height:54px"></span><span class="brand"><img src="https://cdn.simpleicons.org/puma/1c1814" alt="Puma" style="height:48px"></span><span class="brand"><img src="https://cdn.simpleicons.org/newbalance/1c1814" alt="New Balance" style="height:38px"></span><span class="brand"><img src="https://cdn.simpleicons.org/reebok/1c1814" alt="Reebok" style="height:42px"></span><span class="brand"><img src="https://cdn.simpleicons.org/fila/1c1814" alt="Fila" style="height:42px"></span><span class="brand"><img src="https://cdn.simpleicons.org/underarmour/1c1814" alt="Under Armour" style="height:48px"></span><span class="brand"><img src="https://cdn.simpleicons.org/jordan/1c1814" alt="Jordan" style="height:61px"></span><span class="brand"><img src="https://cdn.simpleicons.org/zara/1c1814" alt="Zara" style="height:32px"></span><span class="brand"><img src="https://cdn.simpleicons.org/dior/1c1814" alt="Dior" style="height:29px"></span><span class="brand"><img src="https://cdn.simpleicons.org/hermes/1c1814" alt="Hermès" style="height:61px"></span><span class="brand"><img src="https://cdn.simpleicons.org/thenorthface/1c1814" alt="The North Face" style="height:48px"></span></div>
+        <div class="brand-set" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section class="section" id="shop">
+    <div class="section-head">
+      <p class="eyebrow">The collection</p>
+      <h2>Shoes &amp; bags</h2>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>No products found. Try another category or search.</p>
+  </section>
+
+  <!-- SALE -->
+  <section class="section sale-section" id="sale">
+    <div class="sale-banner">
+      <div>
+        <p class="eyebrow light">Limited time</p>
+        <h2>The Winter Sale</h2>
+        <p>Up to <b>40% off</b> on selected shoes and bags. Offer ends in:</p>
+      </div>
+      <div class="countdown" id="countdown"></div>
+    </div>
+    <div class="grid" id="saleGrid"></div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="contact" id="contact">
+    <div class="contact-cols">
+      <div class="c-col">
+        <svg class="c-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 23.5 24 8l18 15.5M11 20v20h11V28h4v12h11V20"/></svg>
+        <h3>Visit us</h3>
+        <p>Step into our boutique to try on the new collection, get sizing advice and find your perfect pair.</p>
+        <a class="c-info" href="https://www.google.com/maps/search/?api=1&query=41.9164,22.4122" target="_blank" rel="noopener">Kočani, North Macedonia</a>
+      </div>
+      <div class="c-col">
+        <svg class="c-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M14.5 6.5 10 8.2c-1.800.7-2.800 2.600-2.300 4.500C10.200 23.200 19 33.200 30.500 38c1.800.8 3.800-.1 4.600-1.900l1.700-4.200c.3-.8 0-1.700-.8-2.100l-5.700-3c-.7-.4-1.600-.2-2.100.4l-2.200 2.700c-4.300-2-8.200-5.900-10.100-10.300l2.700-2.100c.7-.5.900-1.400.5-2.100l-2.700-5.600c-.4-.8-1.300-1.200-2.100-.9Z"/></svg>
+        <h3>Call us</h3>
+        <p>Questions about an order, a size or a delivery? Our team is happy to help, Monday to Saturday.</p>
+        <a class="c-info" href="tel:+000000000000">+00 000 000 000</a>
+      </div>
+      <div class="c-col">
+        <svg class="c-ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="10" width="36" height="28" rx="2.500"/><path d="m7 12 17 14L41 12"/></svg>
+        <h3>Contact us</h3>
+        <p>Write to us any time. We reply within one working day, with styling tips and order help.</p>
+        <a class="c-info" href="mailto:hello@coveryshoes.com">hello@coveryshoes.com</a>
+      </div>
+    </div>
+    <div class="map" id="map" aria-label="Map showing the Covery Shoes boutique">
+      <div id="leaflet"></div>
+      <div class="map-ctrl glass">
+        <button type="button" id="mZoomIn" aria-label="Zoom in">+</button>
+        <button type="button" id="mZoomOut" aria-label="Zoom out">−</button>
+        <button type="button" id="mLocate" aria-label="Centre on the boutique"><svg viewBox="0 0 24 24"><path d="m3.500 11 17-7.500-7.500 17-2-7.500z"/></svg></button>
+      </div>
+      <div class="map-pin" id="mapPin" aria-hidden="true">
+        <span class="bubble glass">Covery Shoes</span>
+        <b><i></i><svg viewBox="0 0 24 24"><path d="M5 9h14l-1.200 10.500a1.500 1.500 0 0 1-1.500 1.300H7.700a1.500 1.500 0 0 1-1.500-1.300L5 9Z"/><path d="M8.500 9V7.500a3.500 3.500 0 0 1 7 0V9"/></svg></b>
+      </div>
+      <div class="map-card glass">
+        <div class="mc-head">
+          <span class="mc-ico"><svg viewBox="0 0 24 24"><path d="M5 9h14l-1.200 10.500a1.500 1.500 0 0 1-1.500 1.300H7.700a1.500 1.500 0 0 1-1.500-1.300L5 9Z"/><path d="M8.500 9V7.500a3.500 3.500 0 0 1 7 0V9"/></svg></span>
+          <div><b>Covery Shoes</b><span>Shoes &amp; bags boutique</span></div>
+        </div>
+        <p class="mc-addr">Kočani, North Macedonia</p>
+        <div class="mc-actions">
+          <a class="mc-btn primary" href="https://www.google.com/maps/search/?api=1&query=41.9164,22.4122" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="m3.500 11 17-7.500-7.500 17-2-7.500z"/></svg>Directions</a>
+          <a class="mc-btn" href="tel:+000000000000"><svg viewBox="0 0 24 24"><path d="M6.500 3.500 4.500 4.300c-1 .4-1.500 1.400-1.200 2.400 1.400 5.500 6 10.800 12 13.300 1 .4 2.100-.1 2.500-1.100l.8-2c.2-.4 0-.9-.4-1.100l-3-1.500c-.4-.2-.8-.1-1.100.2l-1.200 1.400c-2.200-1-4.300-3.100-5.300-5.400l1.400-1.100c.4-.3.500-.8.200-1.200L7.600 4c-.2-.4-.7-.6-1.100-.5Z"/></svg>Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="foot-grid">
+    <div>
+      <div class="logo foot-logo">COVERY <small>SHOES</small></div>
+      <p>Elegant shoes and bags, made to be worn every day.</p>
+    </div>
+    <div><h4>Shop</h4><a href="#shop" data-filter="sneakers">Sneakers</a><a href="#shop" data-filter="boots">Boots</a><a href="#shop" data-filter="bags">Bags</a><a href="#sale">Sale</a></div>
+    <div><h4>Help</h4><a href="#">Size guide</a><a href="#">Delivery</a><a href="#">Returns</a><a href="#">Contact us</a></div>
+    <div><h4>Company</h4><a href="#">About Covery</a><a href="#">Craftsmanship</a><a href="#">Stores</a></div>
+  </div>
+  <p class="copy">© 2026 Covery Shoes. All rights reserved.</p>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <button class="modal-close" data-close aria-label="Close">×</button>
+    <div class="gallery">
+      <div class="gallery-stage" id="stage"></div>
+      <button class="arrow left" id="prev" aria-label="Previous picture"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="arrow right" id="next" aria-label="Next picture"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      <div class="dots" id="dots"></div>
+    </div>
+    <div class="details" id="details"></div>
+  </div>
+</div>
+
+<!-- FAVORITES DRAWER -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head"><h3>Your favorites</h3><button class="modal-close static" id="drawerClose" aria-label="Close">×</button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="products.js"></script>
+<script src="app.js"></script>
+<script src="hero.js"></script>
+<script src="hero-bold.js"></script>
+<script src="editorial.js"></script>
+<script src="contact.js"></script>
+<script src="shop-hours.js"></script>
+<script src="brands.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>
